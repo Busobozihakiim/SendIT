@@ -45,7 +45,40 @@
             </div>
             <div  class="all-columns">
                 <div class="accordion"><h2>In Transit</h2></div>
-                <div class="panel"><p>lorem ipsum doe lorem ipsum doe lorem ipsum doe lorem ipsum doe </p></div>
+                <div class="panel">
+                    <div class="collapse">ORDER_ID_1</div>
+                        <div class="content show">
+                            <form>
+                                <label>From</label>
+                                <input type="text" value="Parcel Name:"readonly>                                                                
+                                <input type="text" value="Description:"readonly>
+                                <input type="text" value="Weight:" readonly>
+                                <input type="text" value="Pickup Address:"readonly>
+                                <input type="text" value="Pickup Time:"readonly>
+                                <label>To</label>
+                                <input type="text" value="Recepient:"readonly>
+                                <input type="text" value="Destination:" readonly>
+                                <input type="text" value="Current location:"readonly>
+                                <button class="change">Change destination</button><button class="cancel">Cancel Order</button>
+                            </form>
+                        </div>
+                    <div class="collapse">ORDER_ID_2</div>
+                    <div class="content" >
+                        <form>
+                            <label>From</label>
+                            <input type="text" value="Parcel Name:"readonly>                                                                
+                            <input type="text" value="Description:"readonly>
+                            <input type="text" value="Weight:" readonly>
+                            <input type="text" value="Pickup Address:"readonly>
+                            <input type="text" value="Pickup Time:"readonly>
+                            <label>To</label>
+                            <input type="text" value="Recepient:"readonly>
+                            <input type="text" value="Destination:" readonly>
+                            <input type="text" value="Current location:"readonly>
+                            <button class="change">Change destination</button><button class="cancel">Cancel Order</button>
+                        </form>
+                        </div>    
+                </div>
             </div>
             <div  class="all-columns">
                 <div><h2>Delivered Orders</h2></div>
@@ -82,5 +115,30 @@
                 }
             }
         }
+
+        //show details of parcel delivery order
+        var coll = document.getElementsByClassName("collapse");
+        var content = document.getElementsByClassName('content');
+        
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].onclick = function() {
+    	        var setClasses = this.classList.contains('active');
+                    /*calling function with args that set class name for resseting*/
+                    setClass(coll, 'active', 'remove');
+                    setClass(content, 'show', 'remove');
+                    /*if the accordion is not being shown change state to active and show it*/
+       	            if (!setClasses) {
+                        this.classList.toggle("active");
+                        this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            }
+            /*resetting the accordion back to its original state*/ 
+            function setClass(els, className, fnName) {
+                for (var i = 0; i < els.length; i++) {
+                    els[i].classList[fnName](className);
+                }
+            }
+
     </script>
 </html>

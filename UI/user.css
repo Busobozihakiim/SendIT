@@ -92,5 +92,41 @@ input[type="submit"]{
     display: block;
     width: 99%;
     padding:2%;
+    border:none;
     background-color: #67aade;
+}
+.collapse{
+    background-color:#30b192;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 16px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+div.content {
+    /*padding: 0 18px;*/
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
+div.content.show{
+    display: block !important;
+}
+.change{    
+    background: #09b1a3 ;
+    margin: 4px;
+    border: none;
+    color: white;
+    padding: 3%;
+}
+.cancel{
+float: right;
+background: #ff3e3e;
+margin: 4px;
+border: none;
+color: white;
+padding: 3%;
 }
