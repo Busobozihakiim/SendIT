@@ -86,3 +86,11 @@ div.panel.show {
     display: block !important;
 }
 }
+
+input[type="submit"]{
+    margin: auto;
+    display: block;
+    width: 99%;
+    padding:2%;
+    background-color: #67aade;
+}
