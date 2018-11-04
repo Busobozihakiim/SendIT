@@ -59,7 +59,7 @@
                                 <input type="text" value="Recepient:"readonly>
                                 <input type="text" value="Destination:" readonly>
                                 <input type="text" value="Current location:"readonly>
-                                <button class="change">Change destination</button><button class="cancel">Cancel Order</button>
+                                <input type="button" value="Change destination" class="change" onclick="openProductModal()"><button class="cancel">Cancel Order</button>
                             </form>
                         </div>
                     <div class="collapse">ORDER_ID_2</div>
@@ -75,9 +75,20 @@
                             <input type="text" value="Recepient:"readonly>
                             <input type="text" value="Destination:" readonly>
                             <input type="text" value="Current location:"readonly>
-                            <button class="change">Change destination</button><button class="cancel">Cancel Order</button>
+                            <input type="button" value="Change destination" class="change" onclick="openProductModal()"><button class="cancel">Cancel Order</button>
                         </form>
-                        </div>    
+                        </div>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>Change Destination</h4>
+                            </div>
+                        <form>
+                            <input type="text" placeholder="New Destination"><br>                            
+                            <input class="change" type="button" value="Change " id="editBtn" onclick="closeTheModal()"/>
+                        </form> 
+                        </div>   
+                    </div>    
                 </div>
             </div>
             <div  class="all-columns">
@@ -139,6 +150,26 @@
                     els[i].classList[fnName](className);
                 }
             }
+        
+        //change the destination of a delivery package
+            var modal = document.getElementById('myModal');
+            var closeButton= document.getElementsByClassName("close")[1];
 
+            // When admin clicks the button, open the modal 
+            function openProductModal() {
+                modal.style.display = "block";
+            }
+            
+            // When admin adds a product ,close the modal
+            function closeTheModal() {
+                modal.style.display = "none";
+            }
+            
+            // When the admin clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
     </script>
 </html>
