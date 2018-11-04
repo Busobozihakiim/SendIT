@@ -91,10 +91,20 @@ body{
 }
 .footer {
     background-color: #3f5566;
-    color: #ffffff;
     text-align: center;
     font-size: 12px;
-    padding: 15px;
+    padding: 0px;
+}
+.footer-columns{
+    background: whitesmoke; 
+    width: 15em;
+    height: auto;
+    border-radius: 3px;
+    /*padding: 2em;*/
+    margin: 1em;
+    overflow: hidden;
+    position: relative;
+    flex: auto;
 }
 table {
     overflow-x:auto;
@@ -150,8 +160,7 @@ input[type="submit"]{
     border:none;
     background-color: #67aade;
 }
-.collapse{
-    background-color:#30b192;
+.collapse, .completed{
     color: #ffffff;
     cursor: pointer;
     padding: 16px;
@@ -161,13 +170,19 @@ input[type="submit"]{
     outline: none;
     font-size: 15px;
   }
-div.content {
+.collapse{
+    background-color: #3070b1;
+}
+.completed{
+    background-color: #30b192;
+}
+div.content, div.finished {
     /*padding: 0 18px;*/
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
 }
-div.content.show{
+div.content.show, div.finished.show{
     display: block !important;
 }
 .change{    

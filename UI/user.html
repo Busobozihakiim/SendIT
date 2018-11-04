@@ -52,19 +52,19 @@
             <div  class="all-columns">
                 <div class="accordion"><h2>In Transit</h2></div>
                 <div class="panel">
-                    <div class="collapse">ORDER_ID_1</div>
+                    <div class="collapse">ORDER_ID_3</div>
                         <div class="content show">
                             <form>
                                 <label>From</label>
-                                <input type="text" value="Parcel Name:"readonly>                                                                
-                                <input type="text" value="Description:"readonly>
-                                <input type="text" value="Weight:" readonly>
-                                <input type="text" value="Pickup Address:"readonly>
+                                <input type="text" value="Parcel Name:laptop"readonly>                                                                
+                                <input type="text" value="Description:black hp laptop"readonly>
+                                <input type="text" value="Weight:1.8kg" readonly>
+                                <input type="text" value="Pickup Address:luzira"readonly>
                                 <input type="text" value="Pickup Time:"readonly>
                                 <label>To</label>
-                                <input type="text" value="Recepient:"readonly>
-                                <input type="text" value="Destination:" readonly>
-                                <input type="text" value="Current location:"readonly>
+                                <input type="text" value="Recepient:Jane Doe"readonly>
+                                <input type="text" value="Destination:bweyogerere" readonly>
+                                <input type="text" value="Current location:nakawa"readonly>
                                 <input type="button" value="Change destination" class="change" onclick="openProductModal()"><button class="cancel">Cancel Order</button>
                             </form>
                         </div>
@@ -72,15 +72,15 @@
                     <div class="content" >
                         <form>
                             <label>From</label>
-                            <input type="text" value="Parcel Name:"readonly>                                                                
-                            <input type="text" value="Description:"readonly>
-                            <input type="text" value="Weight:" readonly>
-                            <input type="text" value="Pickup Address:"readonly>
-                            <input type="text" value="Pickup Time:"readonly>
+                            <input type="text" value="Parcel Name:Desktop case"readonly>                                                                
+                            <input type="text" value="Description:Gaming rig casing"readonly>
+                            <input type="text" value="Weight:2.6kgs" readonly>
+                            <input type="text" value="Pickup Address:kireka"readonly>
+                            <input type="text" value="Pickup Time:11.40"readonly>
                             <label>To</label>
-                            <input type="text" value="Recepient:"readonly>
-                            <input type="text" value="Destination:" readonly>
-                            <input type="text" value="Current location:"readonly>
+                            <input type="text" value="Recepient:Mitch"readonly>
+                            <input type="text" value="Destination:Suncity arcade" readonly>
+                            <input type="text" value="Current location:ntinda"readonly>
                             <input type="button" value="Change destination" class="change" onclick="openProductModal()"><button class="cancel">Cancel Order</button>
                         </form>
                         </div>
@@ -98,17 +98,46 @@
                 </div>
             </div>
             <div  class="all-columns">
-                <div><h2>Delivered Orders</h2></div>
-                <div><p></p></div>
+                <div class="accordion"><h2>Delivered Orders</h2></div>
+                <div class="panel show">
+                    <div class="completed">ORDER_ID_1</div>
+                        <div class="finished show">
+                            <form>
+                                <input type="text" value="Parcel Name:Sofa"readonly>                                                                
+                                <input type="text" value="Description:Grey expandable sofa"readonly>
+                                <input type="text" value="Weight:35kgs" readonly>
+                                <input type="text" value="Pickup Address:Entebbe"readonly>
+                                <input type="text" value="Pickup Time:8:00am"readonly>
+                                <input type="text" value="Recepient:John Doe"readonly>
+                                <input type="text" value="Destination:bukoto" readonly>
+                                <input type="text" value="Cost:Shs 30,000/=" readonly>
+                            </form>
+                        </div>    
+                </div>
             </div>
         </div>
         <div class="footer">
-            <p>The footer shall go here</p>
+                <div class="row">
+                        <div class="footer-columns logo">
+                            <h3>SendIT</h3>
+                            <p>The Fastest Delivery Option you can trust</p>
+                        </div>
+                        <div class="footer-columns contacts">
+                            <p>Kampala, Uganda</p>
+                            <p>+256 123 456789</p></p>
+                            <a href>help@sendit.mail</a>
+                        </div>
+                        <div class="footer-columns statement">
+                            <h4>Mission</h4>
+                            <p>To be the fastest, trustworthy  and safest courier company</p>
+                        </div>
+                    </div>
         </div>
     </body>
     <script>
+        //collapse all colomns on small screens 
         if (screen.width < 425 ){
-
+            
             var acc = document.getElementsByClassName("accordion");
             var panel = document.getElementsByClassName('panel');
         
@@ -193,5 +222,29 @@
                         }
                     }
                 }
+        //for collapsing completed delivery orders
+        var comp = document.getElementsByClassName("completed");
+            var finished = document.getElementsByClassName('finished');
+        
+            for (var i = 0; i < comp.length; i++) {
+                comp[i].onclick = function() {
+    	        var setClasses = this.classList.contains('active');
+                    /*calling function with args that set class name for resseting*/
+                    setClass(comp, 'active', 'remove');
+                    setClass(finished, 'show', 'remove');
+                    /*if the accordion is not being shown change state to active and show it*/
+       	            if (!setClasses) {
+                        this.classList.toggle("active");
+                        this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            }
+            /*resetting the accordion back to its original state*/ 
+            function setClass(els, className, fnName) {
+                for (var i = 0; i < els.length; i++) {
+                    els[i].classList[fnName](className);
+                }
+            }
+        
     </script>
 </html>
