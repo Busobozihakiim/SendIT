@@ -59,11 +59,11 @@ li a{
     position: relative;
     flex: auto;
     display: table-cell;
-    background-color: rebeccapurple;
+    background-color: #d4d2d2;
 
 }
 .someText{
-    color:white;
+    color:black;
 }
 form {
     padding:6% 4%;
@@ -71,7 +71,7 @@ form {
 }
 h1 {
     text-align:center;
-    color:white;
+    /*color:white;*/
     font-weight:300;
     margin:0 0 20px;
 }
@@ -86,20 +86,29 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     background: #e3e3e6;
 }
 input[type="submit"] {
-    background: #cc8533;
+    background: #2b93ff;
     border: 0;
     padding: 2%;
     font-family: 'Open Sans',sans-serif;
     font-size: 100%;
     color: #fff;
     cursor: pointer;
-    transition: background .3s;
 }
 .footer {
     background-color: #3f5566;
-    color: #ffffff;
     text-align: center;
     font-size: 12px;
     padding: 15px;
     margin:1%;
+}
+.footer-columns{
+    background: #d4d2d2; 
+    width: 15em;
+    height: auto;
+    border-radius: 3px;
+    /*padding: 2em;*/
+    margin: 1em;
+    overflow: hidden;
+    position: relative;
+    flex: auto;
 }
