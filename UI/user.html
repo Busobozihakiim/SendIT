@@ -7,8 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="header">
-            <h1 id="first">SendIT Courier's</h1>
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="dropDown()" >Account<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content" id="myDropdown">
+                    <a href="index.html" >Logout</a>
+                    <a href="Admin.html" >Admin</a>
+                </div>
+            </div> 
         </div>
         <div class="row">
             <div  class="all-columns">
@@ -171,5 +177,21 @@
                     modal.style.display = "none";
                 }
             }
+
+        /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function dropDown() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+                
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(e) {
+                if (!e.target.matches('.dropbtn')) {
+                    var myDropdown = document.getElementById("myDropdown");
+                        if (myDropdown.classList.contains('show')) {
+                            myDropdown.classList.remove('show');
+                        }
+                    }
+                }
     </script>
 </html>
