@@ -3,29 +3,290 @@
     <head>
         <title>User Page</title>
         <meta charset="UTF-8">
-        <link type="text/css" href="user.css" rel="stylesheet" media="screen">
+        <link type="text/css" href="css/user.css" rel="stylesheet" media="screen">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="header">
-            <h1 id="first">SendIT Courier's</h1>
+        <div class="navbar">
+            <div class="dropdown">
+                <button class="dropbtn" onclick="dropDown()" >Account<i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content" id="myDropdown">
+                    <a href="index.html" >Logout</a>
+                    <a href="admin.html" >Admin</a>
+                </div>
+            </div> 
         </div>
         <div class="row">
             <div  class="all-columns">
-                <a href="">Create an Order</a>
-                <p></p>
+                <div class="accordion"><h2>Create an Order</h2></div>
+                <div class="panel">
+                <form action="">
+                    <h2>From</h2>                    
+                        <input type="text" name="address" placeholder="Pick up Address" required><br>
+                        <input type="text" name="Pickup Time" placeholder="Time" required>
+                    <h2>To</h2>
+                        <input type="text" name="recepient" placeholder="Recepient" required><br>                    
+                        <input type="text" name="address" placeholder="Destination" required><br>
+                    <h2>Details</h2>
+                    <div id="myTable">
+                        <table border="1">
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Weight</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                                <td><input type="text"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <input type="submit" value="Make delivery order">
+                </form>
+                </div>
             </div>
             <div  class="all-columns">
-                <a href="">In Transit Orders</a>
-                <p></p>
+                <div class="accordion"><h2>In Transit</h2></div>
+                <div class="panel">
+                    <div class="collapse">ORDER_ID_6</div>
+                        <div class="content show">
+                            <form>
+                                <label>From</label>
+                                <input type="text" value="Parcel Name:laptop"readonly>                                                                
+                                <input type="text" value="Description:black hp laptop"readonly>
+                                <input type="text" value="Weight:1.8kg" readonly>
+                                <input type="text" value="Pickup Address:luzira"readonly>
+                                <input type="text" value="Pickup Time:"readonly>
+                                <br>
+                                <label>To</label>
+                                <input type="text" value="Recepient:Jane Doe"readonly>
+                                <input type="text" value="Destination:bweyogerere" readonly>
+                                <input type="text" value="Current location:nakawa"readonly>
+                                <input type="button" value="Change destination" class="change" onclick="openProductModal()"><button class="cancel">Cancel Order</button>
+                            </form>
+                        </div>
+                    <div class="collapse">ORDER_ID_5</div>
+                    <div class="content" >
+                        <form>
+                            <label>From</label>
+                            <input type="text" value="Parcel Name:Desktop case"readonly>                                                                
+                            <input type="text" value="Description:Gaming rig casing"readonly>
+                            <input type="text" value="Weight:2.6kgs" readonly>
+                            <input type="text" value="Pickup Address:kireka"readonly>
+                            <input type="text" value="Pickup Time:11.40"readonly>
+                            <br>
+                            <label>To</label>
+                            <input type="text" value="Recepient:Mitch"readonly>
+                            <input type="text" value="Destination:Suncity arcade" readonly>
+                            <input type="text" value="Current location:ntinda"readonly>
+                            <input type="button" value="Change destination" class="change" onclick="openProductModal()"><button class="cancel">Cancel Order</button>
+                        </form>
+                        </div>
+                    <div id="myModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4>Change Destination</h4>
+                            </div>
+                        <form>
+                            <input type="text" placeholder="New Destination"><br>                            
+                            <input class="change" type="button" value="Change " id="editBtn" onclick="closeTheModal()"/>
+                        </form> 
+                        </div>   
+                    </div>    
+                </div>
             </div>
             <div  class="all-columns">
-            <a href="">Delivered Orders</a>
-            <p></p>
+                <div class="accordion"><h2>Delivered Orders</h2></div>
+                <div class="panel show">
+                    <div class="completed">ORDER_ID_4</div>
+                        <div class="finished show">
+                            <form>
+                                <input type="text" value="Parcel Name:Sofa"readonly>                                                                
+                                <input type="text" value="Description:Grey expandable sofa"readonly>
+                                <input type="text" value="Weight:35kgs" readonly>
+                                <input type="text" value="Pickup Address:Entebbe"readonly>
+                                <input type="text" value="Pickup Time:8:00am"readonly>
+                                <input type="text" value="Recepient:John Doe"readonly>
+                                <input type="text" value="Destination:bukoto" readonly>
+                                <input type="text" value="Cost:Shs 30,000/=" readonly>
+                            </form>
+                        </div>
+                        <div class="completed">ORDER_ID_3</div>
+                        <div class="finished ">
+                            <form>
+                                <input type="text" value="Parcel Name:file Cabinet"readonly>                                                                
+                                <input type="text" value="Description:Three"readonly>
+                                <input type="text" value="Weight:90kgs" readonly>
+                                <input type="text" value="Pickup Address:kasangati"readonly>
+                                <input type="text" value="Pickup Time:7:00pm"readonly>
+                                <input type="text" value="Recepient:John Doe"readonly>
+                                <input type="text" value="Destination:kawempe" readonly>
+                                <input type="text" value="Cost:Shs 50,000/=" readonly>
+                            </form>
+                        </div>
+                        <div class="completed">ORDER_ID_2</div>
+                        <div class="finished ">
+                            <form>
+                                <input type="text" value="Parcel Name:Guitor"readonly>                                                                
+                                <input type="text" value="Description:Orange Electric Guitor"readonly>
+                                <input type="text" value="Weight:5kgs" readonly>
+                                <input type="text" value="Pickup Address:Yamaha Sounds"readonly>
+                                <input type="text" value="Pickup Time:9:00am"readonly>
+                                <input type="text" value="Recepient:Ras Eric"readonly>
+                                <input type="text" value="Destination:Granduer Studios kamyokya" readonly>
+                                <input type="text" value="Cost:Shs 5,000/=" readonly>
+                            </form>
+                        </div>
+                        <div class="completed">ORDER_ID_1</div>
+                        <div class="finished ">
+                            <form>
+                                <input type="text" value="Parcel Name:Office Chair"readonly>                                                                
+                                <input type="text" value="Description:Brown Executive Office chair"readonly>
+                                <input type="text" value="Weight:250kgs" readonly>
+                                <input type="text" value="Pickup Address:Mukono"readonly>
+                                <input type="text" value="Pickup Time:3:00pm"readonly>
+                                <input type="text" value="Recepient:Isaac"readonly>
+                                <input type="text" value="Destination:bukoto" readonly>
+                                <input type="text" value="Cost:Shs 55,000/=" readonly>
+                            </form>
+                        </div> 
+                </div>
+                
             </div>
         </div>
         <div class="footer">
-            <p>The footer shall go here</p>
+                <div class="row">
+                        <div class="footer-columns logo">
+                            <h3>SendIT</h3>
+                            <p>The Fastest Delivery Option you can trust</p>
+                        </div>
+                        <div class="footer-columns contacts">
+                            <p>Kampala, Uganda</p>
+                            <p>+256 123 456789</p></p>
+                            <a href>help@sendit.mail</a>
+                        </div>
+                        <div class="footer-columns statement">
+                            <h4>Mission</h4>
+                            <p>To be the fastest, trustworthy  and safest courier company</p>
+                        </div>
+                    </div>
         </div>
     </body>
+    <script>
+        //collapse all colomns on small screens 
+        if (screen.width < 425 ){
+            
+            var acc = document.getElementsByClassName("accordion");
+            var panel = document.getElementsByClassName('panel');
+        
+            for (var i = 0; i < acc.length; i++) {
+                acc[i].onclick = function() {
+    	        var setClasses = this.classList.contains('active');
+                    /*calling function with args that set class name for resseting*/
+                    setClass(acc, 'active', 'remove');
+                    setClass(panel, 'show', 'remove');
+                    /*if the accordion is not being shown change state to active and show it*/
+       	            if (!setClasses) {
+                        this.classList.toggle("active");
+                        this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            }
+            /*resetting the accordion back to its original state*/ 
+            function setClass(els, className, fnName) {
+                for (var i = 0; i < els.length; i++) {
+                    els[i].classList[fnName](className);
+                }
+            }
+        }
+
+        //show details of parcel delivery order
+        var coll = document.getElementsByClassName("collapse");
+        var content = document.getElementsByClassName('content');
+        
+            for (var i = 0; i < coll.length; i++) {
+                coll[i].onclick = function() {
+    	        var setClasses = this.classList.contains('active');
+                    /*calling function with args that set class name for resseting*/
+                    setClass(coll, 'active', 'remove');
+                    setClass(content, 'show', 'remove');
+                    /*if the accordion is not being shown change state to active and show it*/
+       	            if (!setClasses) {
+                        this.classList.toggle("active");
+                        this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            }
+            /*resetting the accordion back to its original state*/ 
+            function setClass(els, className, fnName) {
+                for (var i = 0; i < els.length; i++) {
+                    els[i].classList[fnName](className);
+                }
+            }
+        
+        //change the destination of a delivery package
+            var modal = document.getElementById('myModal');
+            var closeButton= document.getElementsByClassName("close")[1];
+
+            // When admin clicks the button, open the modal 
+            function openProductModal() {
+                modal.style.display = "block";
+            }
+            
+            // When admin adds a product ,close the modal
+            function closeTheModal() {
+                modal.style.display = "none";
+            }
+            
+            // When the admin clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+        /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            function dropDown() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+                
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(e) {
+                if (!e.target.matches('.dropbtn')) {
+                    var myDropdown = document.getElementById("myDropdown");
+                        if (myDropdown.classList.contains('show')) {
+                            myDropdown.classList.remove('show');
+                        }
+                    }
+                }
+        //for collapsing completed delivery orders
+        var comp = document.getElementsByClassName("completed");
+            var finished = document.getElementsByClassName('finished');
+        
+            for (var i = 0; i < comp.length; i++) {
+                comp[i].onclick = function() {
+    	        var setClasses = this.classList.contains('active');
+                    /*calling function with args that set class name for resseting*/
+                    setClass(comp, 'active', 'remove');
+                    setClass(finished, 'show', 'remove');
+                    /*if the accordion is not being shown change state to active and show it*/
+       	            if (!setClasses) {
+                        this.classList.toggle("active");
+                        this.nextElementSibling.classList.toggle("show");
+                    }
+                }
+            }
+            /*resetting the accordion back to its original state*/ 
+            function setClass(els, className, fnName) {
+                for (var i = 0; i < els.length; i++) {
+                    els[i].classList[fnName](className);
+                }
+            }
+        
+    </script>
 </html>
